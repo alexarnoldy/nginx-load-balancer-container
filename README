@@ -1,4 +1,5 @@
 * Clone this repo to the target server
+* Update the nginx.conf file to suit your environment
 * Build the container: sudo podman build -t nginx-lb:latest .
 * Run the container: sudo podman run --name nginx-lb --restart=always -p 6443:6443 -p 32000:32000 -p 32001:32001 -d localhost/nginx-lb:latest
 * Copy the nginx-lb.service systemd file into place: sudo cp -p nginx-lb.service /etc/systemd/system/

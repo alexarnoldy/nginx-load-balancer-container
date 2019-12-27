@@ -1,4 +1,4 @@
-* Clone this repo to the target server
+* Clone this repo to the target server: `cd ~; git clone https://github.com/alexarnoldy/nginx-load-balancer-container.git && cd nginx-load-balancer-container`
 * Update the nginx.conf file to suit your environment
 * Build the container: sudo podman build -t nginx-lb:latest .
 * Run the container: sudo podman run --name nginx-lb --restart=always -p 6443:6443 -p 32000:32000 -p 32001:32001 -d localhost/nginx-lb:latest
@@ -7,3 +7,8 @@
 * Start and enable the systemd nginx-lb.service: sudo systemctl --now enable nginx-lb.service
 * Check the status of the nginx-lb.service: systemctl status nginx-lb.service
 * (Optional) Run this on multiple hosts and use keepalived to manage a Virtual IP between them: https://github.com/alexarnoldy/opensuse-keepalived-container
+
+
+
+// vim: set syntax=asciidoc:
+

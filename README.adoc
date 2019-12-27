@@ -1,7 +1,8 @@
 * Clone this repo to the target server: `cd ~; git clone https://github.com/alexarnoldy/nginx-load-balancer-container.git && cd nginx-load-balancer-container`
 * Update the nginx.conf file to to match the FQDNs of your hosts and update any settings to suit your environment
 * Build the container: `sudo podman build -t nginx-lb:latest .`
-* Run the container: `sudo podman run --name nginx-lb --restart=always -p 6443:6443 -p 32000:32000 -p 32001:32001 -d localhost/nginx-lb:latest`
+* Run the container, using `-p <container port>:<host port>` to specify each port to be monitored: 
+** For example, to monitor ports 6443, 32000, and 32001: `sudo podman run --name nginx-lb -p 6443:6443 -p 32000:32000 -p 32001:32001 -d localhost/nginx-lb:latest`
 * Copy the nginx-lb.service systemd file into place: `sudo cp -p nginx-lb.service /etc/systemd/system/`
 * Reload systemd: `sudo systemctl daemon-reload`
 * Start and enable the systemd nginx-lb.service: `sudo systemctl --now enable nginx-lb.service`

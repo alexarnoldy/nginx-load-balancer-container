@@ -8,11 +8,10 @@
 * Start and enable the systemd nginx-lb.service: `sudo systemctl --now enable nginx-lb.service`
 * Check the status of the nginx-lb.service: `systemctl status nginx-lb.service`
 * Check that the ports are being monitored: `ss -npr --listening`
-* (Optional) Run this on multiple hosts and use keepalived to manage a Virtual IP between them: https://github.com/alexarnoldy/opensuse-keepalived-container
 
 IMPORTANT: Updating the configuration requires removing and rebuilding the container
 
-
+NOTE: To make HA, run multiple instances in the same subnet with identical configurations. Run an instance of https://github.com/alexarnoldy/opensuse-keepalived-container with each to manage a virtual IP address
 
 // vim: set syntax=asciidoc:
 
